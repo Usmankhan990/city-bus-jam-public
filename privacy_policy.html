@@ -1,0 +1,873 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>City Bus Jam – Privacy Policy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Lilita+One&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sky-top: #1c78e8;
+    --sky-mid: #5bbcf9;
+    --sky-low: #c6ebff;
+    --sea: #35b7e5;
+    --park: #56bd4a;
+    --asphalt: #4b5770;
+    --curb: #f5e6c8;
+    --ink: #182b49;
+    --ink-soft: #4c5f7d;
+    --card: rgba(255, 253, 247, 0.96);
+    --gold: #ffcf33;
+    --teal: #17c3b2;
+    --coral: #ff4f64;
+    --blue: #2f8df6;
+    --purple: #8e56ef;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Fredoka', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    color: var(--ink);
+    background: linear-gradient(180deg, #dff3ff 0%, #eef9ec 55%, #dff3ff 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+    line-height: 1.68;
+  }
+
+  /* Pinned Top Road Scroll Tracker */
+  .scroll-road {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 16px;
+    background: #3b465e;
+    border-bottom: 2.5px solid #f5e6c8;
+    z-index: 100;
+    box-shadow: 0 3px 10px rgba(15, 29, 54, 0.22);
+    overflow: hidden;
+  }
+
+  .scroll-road::before {
+    content: "";
+    position: absolute;
+    inset: 6px 0 0 0;
+    height: 2px;
+    background: repeating-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.72) 0 14px,
+      transparent 14px 28px
+    );
+  }
+
+  .scroll-bus {
+    position: absolute;
+    top: 1px;
+    left: 0%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 12px;
+    border-radius: 5px;
+    background: linear-gradient(180deg, #ffe066, #ffb703);
+    border: 1.5px solid #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    transition: left 0.08s linear;
+  }
+
+  .scroll-bus::after {
+    content: "";
+    position: absolute;
+    right: 3px;
+    top: 2px;
+    width: 6px;
+    height: 5px;
+    border-radius: 2px;
+    background: #1f3c5c;
+  }
+
+  /* Animated Cityscape Hero */
+  .hero {
+    position: relative;
+    padding: 58px 20px 105px;
+    text-align: center;
+    background: linear-gradient(180deg, var(--sky-top) 0%, var(--sky-mid) 62%, var(--sky-low) 100%);
+    overflow: hidden;
+    color: #fff;
+  }
+
+  /* Rotating Sunbeams */
+  .sun-glow {
+    position: absolute;
+    right: -60px;
+    top: -40px;
+    width: 420px;
+    height: 420px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 248, 198, 0.52) 0%, rgba(255, 248, 198, 0) 68%);
+    pointer-events: none;
+  }
+
+  .sun-rays {
+    position: absolute;
+    right: -130px;
+    top: -110px;
+    width: 560px;
+    height: 560px;
+    background: repeating-conic-gradient(
+      from 0deg,
+      rgba(255, 255, 255, 0.14) 0deg 14deg,
+      rgba(255, 255, 255, 0) 14deg 28deg
+    );
+    border-radius: 50%;
+    mask-image: radial-gradient(circle, #000 18%, transparent 66%);
+    -webkit-mask-image: radial-gradient(circle, #000 18%, transparent 66%);
+    animation: rotateSlow 42s linear infinite;
+    pointer-events: none;
+  }
+
+  /* Drifting Clouds */
+  .cloud {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.92);
+    border-radius: 999px;
+    filter: drop-shadow(0 6px 8px rgba(32, 92, 165, 0.14));
+    animation: cloudDrift linear infinite;
+    pointer-events: none;
+  }
+
+  .cloud::before,
+  .cloud::after {
+    content: "";
+    position: absolute;
+    background: inherit;
+    border-radius: 50%;
+  }
+
+  .c1 {
+    width: 118px;
+    height: 36px;
+    top: 34px;
+    left: -140px;
+    animation-duration: 34s;
+  }
+  .c1::before { width: 56px; height: 56px; left: 18px; top: -24px; }
+  .c1::after { width: 42px; height: 42px; right: 18px; top: -16px; }
+
+  .c2 {
+    width: 88px;
+    height: 28px;
+    top: 86px;
+    left: -110px;
+    opacity: 0.85;
+    animation-duration: 44s;
+    animation-delay: -18s;
+  }
+  .c2::before { width: 42px; height: 42px; left: 14px; top: -18px; }
+  .c2::after { width: 32px; height: 32px; right: 14px; top: -12px; }
+
+  .c3 {
+    width: 102px;
+    height: 32px;
+    top: 48px;
+    left: -130px;
+    opacity: 0.88;
+    animation-duration: 38s;
+    animation-delay: -27s;
+  }
+  .c3::before { width: 48px; height: 48px; left: 18px; top: -22px; }
+  .c3::after { width: 36px; height: 36px; right: 16px; top: -14px; }
+
+  /* Floating Balloon */
+  .balloon {
+    position: absolute;
+    top: 52px;
+    left: 10%;
+    width: 46px;
+    animation: balloonFloat 5.4s ease-in-out infinite;
+    opacity: 0.94;
+    pointer-events: none;
+  }
+
+  /* Skyline + Waterfront + Animated Traffic Strip */
+  .city-skyline {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 62px;
+    height: 64px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    opacity: 0.42;
+    pointer-events: none;
+  }
+
+  .tower {
+    width: 34px;
+    background: #89b7ea;
+    border-radius: 5px 5px 0 0;
+  }
+
+  .t-sm { height: 34px; }
+  .t-md { height: 48px; }
+  .t-lg { height: 62px; }
+
+  .road-stage {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 64px;
+    background: linear-gradient(180deg, #5bbf4e 0 10px, var(--curb) 10px 15px, var(--asphalt) 15px 59px, var(--curb) 59px 64px);
+    overflow: hidden;
+  }
+
+  .road-dashes {
+    position: absolute;
+    left: -80px;
+    right: -80px;
+    top: 35px;
+    height: 4px;
+    background: repeating-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.72) 0 26px,
+      transparent 26px 52px
+    );
+  }
+
+  .lane-vehicle {
+    position: absolute;
+    bottom: 12px;
+    animation: driveRight linear infinite;
+    filter: drop-shadow(0 4px 4px rgba(10, 20, 38, 0.35));
+  }
+
+  .lane-vehicle.reverse {
+    bottom: 24px;
+    animation-name: driveLeft;
+  }
+
+  .v-bus-red { width: 84px; animation-duration: 12s; animation-delay: -2s; }
+  .v-car-yellow { width: 52px; animation-duration: 9.5s; animation-delay: -6.5s; }
+  .v-bus-blue { width: 92px; animation-duration: 13.5s; animation-delay: -5s; }
+  .v-van-teal { width: 64px; animation-duration: 10.5s; animation-delay: -9.5s; }
+
+  /* Hero Branding */
+  .hero-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 760px;
+    margin: 0 auto;
+    animation: popIn 0.75s cubic-bezier(0.22, 1.28, 0.36, 1) both;
+  }
+
+  .brand-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 16px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.24);
+    border: 2px solid rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(8px);
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    box-shadow: 0 6px 16px rgba(13, 55, 118, 0.2);
+  }
+
+  .brand-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #6bf178;
+    box-shadow: 0 0 0 4px rgba(107, 241, 120, 0.32);
+    animation: pulseRing 2s ease-in-out infinite;
+  }
+
+  .game-title {
+    font-family: 'Lilita One', system-ui, sans-serif;
+    font-size: clamp(2.4rem, 7vw, 3.8rem);
+    letter-spacing: 0.02em;
+    line-height: 1.05;
+    margin-bottom: 10px;
+    text-shadow: 0 4px 0 #1f2459, 0 8px 20px rgba(12, 34, 72, 0.35);
+    animation: gentleBob 3.6s ease-in-out infinite;
+  }
+
+  .c-coral { color: #ff6274; }
+  .c-gold { color: #ffe152; }
+  .c-mint { color: #72f296; }
+  .c-aqua { color: #6ef3ff; }
+
+  .hero-sub {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #fff;
+    text-shadow: 0 2px 6px rgba(12, 42, 92, 0.38);
+    margin-bottom: 14px;
+  }
+
+  .meta-chips {
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .chip {
+    background: rgba(18, 43, 86, 0.38);
+    border: 1.5px solid rgba(255, 255, 255, 0.45);
+    padding: 5px 14px;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  /* Quick Highlights Strip */
+  .main {
+    max-width: 860px;
+    margin: -34px auto 0;
+    padding: 0 18px 64px;
+    position: relative;
+    z-index: 4;
+  }
+
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+
+  .badge-card {
+    background: var(--card);
+    border-radius: 22px;
+    padding: 18px 16px;
+    text-align: center;
+    border: 2.5px solid #ffffff;
+    box-shadow: 0 10px 24px rgba(24, 43, 73, 0.12), 0 4px 0 #d6e4f2;
+    transition: transform 0.25s cubic-bezier(0.22, 1.28, 0.36, 1), box-shadow 0.25s ease;
+  }
+
+  .badge-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 28px rgba(24, 43, 73, 0.16), 0 6px 0 #c5d9ec;
+  }
+
+  .badge-icon {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 10px;
+    border-radius: 15px;
+    display: grid;
+    place-items: center;
+    color: #fff;
+    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.18);
+  }
+
+  .bg-teal { background: linear-gradient(135deg, #2ae1cf, #129f91); }
+  .bg-gold { background: linear-gradient(135deg, #ffd84a, #f29d18); }
+  .bg-coral { background: linear-gradient(135deg, #ff7486, #e0374f); }
+
+  .badge-card h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+
+  .badge-card p {
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+  }
+
+  /* Policy Section Cards */
+  .policy-card {
+    background: var(--card);
+    border-radius: 24px;
+    padding: 26px 26px;
+    margin-bottom: 18px;
+    border: 2.5px solid #ffffff;
+    box-shadow: 0 10px 26px rgba(24, 43, 73, 0.09), 0 4px 0 #dbe6f2;
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity 0.55s ease, transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .policy-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .card-head {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 12px;
+  }
+
+  .num-badge {
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+    border-radius: 12px;
+    background: linear-gradient(180deg, #439eff, #1e73df);
+    color: #fff;
+    font-family: 'Lilita One', system-ui, sans-serif;
+    font-size: 1.25rem;
+    display: grid;
+    place-items: center;
+    box-shadow: 0 3px 0 #1555ab;
+  }
+
+  .policy-card h2 {
+    font-size: 1.32rem;
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .policy-card p {
+    color: #2c405e;
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
+
+  .policy-card p:last-child {
+    margin-bottom: 0;
+  }
+
+  .policy-list {
+    list-style: none;
+    display: grid;
+    gap: 8px;
+    margin-top: 8px;
+  }
+
+  .policy-list li {
+    position: relative;
+    padding-left: 26px;
+    color: #2c405e;
+  }
+
+  .policy-list li::before {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 8px;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #3be083, #1fa65d);
+    box-shadow: 0 2px 0 rgba(18, 92, 50, 0.28);
+  }
+
+  a {
+    color: #1968d8;
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1.5px dashed rgba(25, 104, 216, 0.45);
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+
+  a:hover {
+    color: #0e4ba8;
+    border-bottom-color: #0e4ba8;
+  }
+
+  /* Contact Card */
+  .contact-card {
+    background: linear-gradient(135deg, #1d75e8 0%, #1d9bf0 55%, #2ec4b6 100%);
+    color: #fff;
+    border-radius: 26px;
+    padding: 28px 26px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    box-shadow: 0 14px 30px rgba(24, 96, 198, 0.26), 0 5px 0 #1355b0;
+  }
+
+  .contact-card h2 {
+    font-size: 1.45rem;
+    margin-bottom: 6px;
+  }
+
+  .contact-card p {
+    color: rgba(255, 255, 255, 0.92);
+    max-width: 480px;
+  }
+
+  .mail-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(180deg, #ffe15a, #ffba19);
+    color: #1c2438;
+    font-weight: 700;
+    font-size: 1.05rem;
+    padding: 13px 22px;
+    border-radius: 999px;
+    border: 2.5px solid #fff;
+    box-shadow: 0 5px 0 #c98600, 0 10px 20px rgba(0, 0, 0, 0.18);
+    transition: transform 0.2s cubic-bezier(0.22, 1.4, 0.36, 1), box-shadow 0.2s ease;
+    border-bottom: 2.5px solid #fff;
+  }
+
+  .mail-btn:hover {
+    color: #1c2438;
+    border-bottom-color: #fff;
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 0 #c98600, 0 14px 24px rgba(0, 0, 0, 0.24);
+  }
+
+  .footer {
+    text-align: center;
+    margin-top: 26px;
+    color: var(--ink-soft);
+    font-size: 0.92rem;
+    font-weight: 500;
+  }
+
+  /* Keyframes */
+  @keyframes rotateSlow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  @keyframes cloudDrift {
+    from { transform: translateX(0); }
+    to { transform: translateX(calc(100vw + 260px)); }
+  }
+
+  @keyframes balloonFloat {
+    0%, 100% { transform: translateY(0) rotate(-3deg); }
+    50% { transform: translateY(-12px) rotate(3deg); }
+  }
+
+  @keyframes driveRight {
+    from { transform: translateX(-130px); }
+    to { transform: translateX(calc(100vw + 130px)); }
+  }
+
+  @keyframes driveLeft {
+    from { transform: translateX(calc(100vw + 130px)) scaleX(-1); }
+    to { transform: translateX(-130px) scaleX(-1); }
+  }
+
+  @keyframes popIn {
+    0% { opacity: 0; transform: scale(0.92) translateY(16px); }
+    100% { opacity: 1; transform: scale(1) translateY(0); }
+  }
+
+  @keyframes gentleBob {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+  }
+
+  @keyframes pulseRing {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.18); opacity: 0.85; }
+  }
+
+  @media (max-width: 720px) {
+    .summary-grid {
+      grid-template-columns: 1fr;
+    }
+    .hero {
+      padding: 46px 16px 96px;
+    }
+    .policy-card {
+      padding: 20px 18px;
+    }
+    .balloon {
+      display: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation: none !important;
+      transition: none !important;
+    }
+    .policy-card {
+      opacity: 1;
+      transform: none;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="scroll-road" aria-hidden="true">
+  <div class="scroll-bus" id="scrollBus"></div>
+</div>
+
+<header class="hero">
+  <div class="sun-rays" aria-hidden="true"></div>
+  <div class="sun-glow" aria-hidden="true"></div>
+  <div class="cloud c1" aria-hidden="true"></div>
+  <div class="cloud c2" aria-hidden="true"></div>
+  <div class="cloud c3" aria-hidden="true"></div>
+
+  <!-- Hot Air Balloon SVG -->
+  <svg class="balloon" viewBox="0 0 64 84" aria-hidden="true">
+    <ellipse cx="32" cy="28" rx="22" ry="26" fill="#ffcf4a"/>
+    <path d="M32 2 C19 2 10 14 10 28 C10 42 20 53 32 54 Z" fill="#ff5c77"/>
+    <path d="M32 2 C45 2 54 14 54 28 C54 42 44 53 32 54 Z" fill="#2bd9c2"/>
+    <ellipse cx="32" cy="28" rx="9" ry="25" fill="#ffe15a"/>
+    <line x1="25" y1="53" x2="27" y2="66" stroke="#614228" stroke-width="2"/>
+    <line x1="39" y1="53" x2="37" y2="66" stroke="#614228" stroke-width="2"/>
+    <rect x="24" y="66" width="16" height="10" rx="3" fill="#b77743"/>
+  </svg>
+
+  <div class="city-skyline" aria-hidden="true">
+    <div class="tower t-md"></div>
+    <div class="tower t-lg"></div>
+    <div class="tower t-sm"></div>
+    <div class="tower t-lg"></div>
+    <div class="tower t-md"></div>
+    <div class="tower t-sm"></div>
+    <div class="tower t-md"></div>
+    <div class="tower t-lg"></div>
+  </div>
+
+  <div class="hero-inner">
+    <div class="brand-pill">
+      <span class="brand-dot"></span>
+      <span>CodedHouse Privacy Center</span>
+    </div>
+    <h1 class="game-title">
+      <span class="c-coral">City</span>
+      <span class="c-gold">Bus</span>
+      <span class="c-mint">Jam</span>
+    </h1>
+    <p class="hero-sub">Privacy Policy &bull; Safe, Simple &amp; Family-Friendly</p>
+    <div class="meta-chips">
+      <span class="chip">Effective Date: November 17, 2026</span>
+      <span class="chip">All Ages Welcome</span>
+      <span class="chip">No Account Required</span>
+    </div>
+  </div>
+
+  <!-- Live Animated Toy Vehicles on Road -->
+  <div class="road-stage" aria-hidden="true">
+    <div class="road-dashes"></div>
+
+    <!-- Coral Toy Bus -->
+    <svg class="lane-vehicle v-bus-red" viewBox="0 0 120 48">
+      <rect x="6" y="10" width="108" height="28" rx="10" fill="#ff4f64"/>
+      <rect x="10" y="6" width="96" height="10" rx="5" fill="#ff7c8c"/>
+      <rect x="14" y="14" width="18" height="10" rx="3" fill="#1e3c5c"/>
+      <rect x="36" y="14" width="18" height="10" rx="3" fill="#1e3c5c"/>
+      <rect x="58" y="14" width="18" height="10" rx="3" fill="#1e3c5c"/>
+      <rect x="82" y="14" width="22" height="12" rx="4" fill="#18324d"/>
+      <rect x="6" y="28" width="108" height="4" fill="#ffffff" opacity="0.88"/>
+      <circle cx="112" cy="30" r="3.5" fill="#fff6b3"/>
+      <circle cx="28" cy="39" r="7.5" fill="#1f242c"/>
+      <circle cx="28" cy="39" r="3.8" fill="#dfe5ec"/>
+      <circle cx="92" cy="39" r="7.5" fill="#1f242c"/>
+      <circle cx="92" cy="39" r="3.8" fill="#dfe5ec"/>
+    </svg>
+
+    <!-- Sunny Yellow Sedan -->
+    <svg class="lane-vehicle v-car-yellow" viewBox="0 0 80 44">
+      <rect x="6" y="16" width="68" height="18" rx="8" fill="#ffca28"/>
+      <rect x="18" y="6" width="40" height="16" rx="7" fill="#ffd95a"/>
+      <rect x="22" y="9" width="14" height="9" rx="2.5" fill="#1e3c5c"/>
+      <rect x="40" y="9" width="14" height="9" rx="2.5" fill="#1e3c5c"/>
+      <circle cx="72" cy="24" r="3" fill="#fff6b3"/>
+      <circle cx="22" cy="35" r="6.5" fill="#1f242c"/>
+      <circle cx="22" cy="35" r="3" fill="#dfe5ec"/>
+      <circle cx="58" cy="35" r="6.5" fill="#1f242c"/>
+      <circle cx="58" cy="35" r="3" fill="#dfe5ec"/>
+    </svg>
+
+    <!-- Royal Blue Coach (Opposite Lane) -->
+    <svg class="lane-vehicle reverse v-bus-blue" viewBox="0 0 130 48">
+      <rect x="6" y="10" width="118" height="28" rx="9" fill="#2f8df6"/>
+      <rect x="14" y="5" width="20" height="6" rx="3" fill="#c7d0db"/>
+      <rect x="14" y="14" width="20" height="10" rx="3" fill="#1e3c5c"/>
+      <rect x="38" y="14" width="20" height="10" rx="3" fill="#1e3c5c"/>
+      <rect x="62" y="14" width="20" height="10" rx="3" fill="#1e3c5c"/>
+      <rect x="88" y="14" width="24" height="12" rx="4" fill="#18324d"/>
+      <rect x="8" y="28" width="114" height="3.5" fill="#ffffff" opacity="0.88"/>
+      <circle cx="122" cy="29" r="3.2" fill="#fff6b3"/>
+      <circle cx="26" cy="39" r="7" fill="#1f242c"/>
+      <circle cx="26" cy="39" r="3.4" fill="#dfe5ec"/>
+      <circle cx="42" cy="39" r="7" fill="#1f242c"/>
+      <circle cx="42" cy="39" r="3.4" fill="#dfe5ec"/>
+      <circle cx="102" cy="39" r="7" fill="#1f242c"/>
+      <circle cx="102" cy="39" r="3.4" fill="#dfe5ec"/>
+    </svg>
+
+    <!-- Teal Minibus (Opposite Lane) -->
+    <svg class="lane-vehicle reverse v-van-teal" viewBox="0 0 92 44">
+      <rect x="6" y="10" width="80" height="24" rx="8" fill="#17c3b2"/>
+      <rect x="14" y="14" width="18" height="9" rx="3" fill="#1e3c5c"/>
+      <rect x="36" y="14" width="18" height="9" rx="3" fill="#1e3c5c"/>
+      <rect x="58" y="14" width="20" height="10" rx="3" fill="#18324d"/>
+      <circle cx="84" cy="24" r="3" fill="#fff6b3"/>
+      <circle cx="24" cy="35" r="6.5" fill="#1f242c"/>
+      <circle cx="24" cy="35" r="3.2" fill="#dfe5ec"/>
+      <circle cx="68" cy="35" r="6.5" fill="#1f242c"/>
+      <circle cx="68" cy="35" r="3.2" fill="#dfe5ec"/>
+    </svg>
+  </div>
+</header>
+
+<main class="main">
+  <!-- Quick Visual Summary -->
+  <section class="summary-grid" aria-label="Privacy highlights">
+    <div class="badge-card">
+      <div class="badge-icon bg-teal" aria-hidden="true">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          <path d="m9 12 2 2 4-4"/>
+        </svg>
+      </div>
+      <h3>Safe for Families</h3>
+      <p>Made for puzzle fans of all ages, including kids &amp; families.</p>
+    </div>
+
+    <div class="badge-card">
+      <div class="badge-icon bg-gold" aria-hidden="true">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="5" y="2" width="14" height="20" rx="2"/>
+          <line x1="12" y1="18" x2="12.01" y2="18"/>
+        </svg>
+      </div>
+      <h3>Saved Locally</h3>
+      <p>Levels, coins &amp; unlocks stay safely on your own device.</p>
+    </div>
+
+    <div class="badge-card">
+      <div class="badge-icon bg-coral" aria-hidden="true">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="8" r="4"/>
+          <path d="M6 21v-2a6 6 0 0 1 12 0v2"/>
+          <line x1="3" y1="3" x2="21" y2="21"/>
+        </svg>
+      </div>
+      <h3>Zero Sign-Ups</h3>
+      <p>Play right away without sharing a name, account, or phone.</p>
+    </div>
+  </section>
+
+  <!-- 1. Overview -->
+  <article class="policy-card">
+    <div class="card-head">
+      <span class="num-badge">1</span>
+      <h2>Our Commitment to Your Privacy</h2>
+    </div>
+    <p>This Privacy Policy explains how <strong>CodedHouse</strong> (&ldquo;we&rdquo;, &ldquo;our&rdquo;, or &ldquo;us&rdquo;) handles information in the mobile game <strong>City Bus Jam</strong>. We designed the game so everyone can tap, solve puzzles, and enjoy a clean experience with minimal data footprint.</p>
+  </article>
+
+  <!-- 2. Local Data & Zero Personal Info -->
+  <article class="policy-card">
+    <div class="card-head">
+      <span class="num-badge">2</span>
+      <h2>Information We Do Not Collect</h2>
+    </div>
+    <p>You do not need an account to play <strong>City Bus Jam</strong>. CodedHouse does not ask for, collect, or store personal details on external servers:</p>
+    <ul class="policy-list">
+      <li>No names, email addresses, passwords, phone numbers, or chat messages are collected inside the app.</li>
+      <li>Your game progress &mdash; current level, unlocked cities, coins, stars, garage skins, and sound or vibration settings &mdash; is saved strictly on your device and never transmitted to CodedHouse.</li>
+    </ul>
+  </article>
+
+  <!-- 3. Children & Families -->
+  <article class="policy-card">
+    <div class="card-head">
+      <span class="num-badge">3</span>
+      <h2>Safe for Children &amp; Families</h2>
+    </div>
+    <p><strong>City Bus Jam</strong> is suitable for players of all ages, including children and families. Because the game requires no registration and collects no personal profile data, children can play without submitting personal details.</p>
+    <p>In-app advertising is configured strictly for family-safe, general-audience content. If you are a parent or guardian with any privacy question, please contact us anytime at <a href="mailto:info@codedhouse.com">info@codedhouse.com</a> and we will respond promptly.</p>
+  </article>
+
+  <!-- 4. Free-to-Play Advertising -->
+  <article class="policy-card">
+    <div class="card-head">
+      <span class="num-badge">4</span>
+      <h2>Family-Safe Advertising</h2>
+    </div>
+    <p>To keep <strong>City Bus Jam</strong> free to download and play, the app uses <strong>Google AdMob</strong> to display occasional ads (configured for general, all-ages suitability). Google may process standard technical signals automatically to deliver age-appropriate ads and maintain service reliability, governed by <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google&rsquo;s Privacy Policy</a>.</p>
+    <p>Where regional privacy regulations require consent, an in-app privacy prompt lets you review or update your preference via the <strong>Privacy settings</strong> option inside the app.</p>
+  </article>
+
+  <!-- 5. Policy Updates -->
+  <article class="policy-card">
+    <div class="card-head">
+      <span class="num-badge">5</span>
+      <h2>Updates to This Policy</h2>
+    </div>
+    <p>We may update this Privacy Policy from time to time as features evolve. Whenever we do, the revised policy will be published on this page with an updated effective date.</p>
+  </article>
+
+  <!-- Contact Banner -->
+  <section class="contact-card">
+    <div>
+      <h2>Questions or Feedback?</h2>
+      <p>Reach out directly to our team at <strong>CodedHouse</strong> regarding privacy, family safety, or support for City Bus Jam.</p>
+    </div>
+    <a class="mail-btn" href="mailto:info@codedhouse.com">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="2" y="4" width="20" height="16" rx="2"/>
+        <path d="m22 7-10 7L2 7"/>
+      </svg>
+      <span>info@codedhouse.com</span>
+    </a>
+  </section>
+
+  <footer class="footer">
+    &copy; 2026 CodedHouse &middot; City Bus Jam
+  </footer>
+</main>
+
+<script>
+  (function () {
+    const cards = document.querySelectorAll('.policy-card');
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add('visible');
+              io.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.12 }
+      );
+      cards.forEach((c) => io.observe(c));
+    } else {
+      cards.forEach((c) => c.classList.add('visible'));
+    }
+
+    const bus = document.getElementById('scrollBus');
+    function updateRoad() {
+      const h = document.documentElement;
+      const max = Math.max(1, h.scrollHeight - window.innerHeight);
+      const pct = Math.min(1, Math.max(0, window.scrollY / max));
+      bus.style.left = (4 + pct * 92).toFixed(2) + '%';
+    }
+    window.addEventListener('scroll', updateRoad, { passive: true });
+    updateRoad();
+  })();
+</script>
+</body>
+</html>
